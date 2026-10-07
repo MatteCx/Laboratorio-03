@@ -70,6 +70,7 @@ def main():
         elif scelta == "7":
             print("Uscita dal programma...")
             break
+
         else:
             Strumenti = deposito.strumenti()
             for strumento in Strumenti:
