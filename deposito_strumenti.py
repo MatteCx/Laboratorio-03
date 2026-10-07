@@ -52,7 +52,7 @@ class DepositoStrumenti:
 
     def termina_prestito(self, id_prestito):
         """Termina un prestito in atto"""
-        # TODO
+        # TODO -------------DONE----------------
         try:
             self.__prestiti.pop(id_prestito)
         except KeyError:

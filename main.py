@@ -19,9 +19,10 @@ def main():
         scelta = menu()
 
         if scelta == "1":
+            #  TODO: Aggiorna responsabile nel sistema  -----------DONE-------------
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ")
             deposito.responsabile = nuovo_responsabile
-            #  TODO: Aggiorna responsabile nel sistema  -----------DONE-------------
+            print(f"Responsabile cambiato con successo")
 
         elif scelta == "2":
             while True:
