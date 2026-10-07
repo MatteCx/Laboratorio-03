@@ -20,7 +20,8 @@ def main():
 
         if scelta == "1":
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ")
-            # TODO: Aggiorna responsabile nel sistema
+            deposito.responsabile = nuovo_responsabile
+            #  TODO: Aggiorna responsabile nel sistema  -----------DONE-------------
 
         elif scelta == "2":
             while True:
@@ -70,7 +71,11 @@ def main():
             print("Uscita dal programma...")
             break
         else:
-            print("Opzione non valida!")
+            Strumenti = deposito.strumenti()
+            for strumento in Strumenti:
+                print(strumento, Strumenti[strumento])
+
+            #print("Opzione non valida!")
 
 if __name__ == "__main__":
     main()
