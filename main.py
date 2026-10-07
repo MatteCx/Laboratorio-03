@@ -72,11 +72,7 @@ def main():
             print("Uscita dal programma...")
             break
         else:
-            Strumenti = deposito.strumenti()
-            for strumento in Strumenti:
-                print(strumento, Strumenti[strumento])
-
-            #print("Opzione non valida!")
+            print("Opzione non valida!")
 
 if __name__ == "__main__":
     main()

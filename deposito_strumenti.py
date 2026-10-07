@@ -35,14 +35,14 @@ class DepositoStrumenti:
     def strumenti_ordinati_per_marca(self):
         """Ordina gli strumenti per marca in ordine alfabetico"""
         # TODO -------------DONE----------------
-        return sorted([el for el in self.__strumenti.items()], key = itemgetter(2))
+        return sorted([el for el in self.__strumenti.values()], key = itemgetter(2))
 
     def nuovo_prestito(self, data, id_strumento, cognome_allievo):
         """Crea un nuovo prestito"""
         # TODO ------------DONE----------------
         if id_strumento not in set(el for el in self.__strumenti.keys()):
             raise NameError("Il codice strumento non è presente nel deposito")
-        elif id_strumento not in set(el[1] for el in self.__prestiti.items()):
+        elif id_strumento not in set(el[1] for el in self.__prestiti.values()):
             raise NameError("Lo strumento risulta in prestito ad un altro allievo")
         n_prestito = 1
         while n_prestito in set(int(el[1:]) for el in self.__prestiti.keys()): n_prestito += 1
