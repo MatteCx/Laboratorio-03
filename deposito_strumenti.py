@@ -18,7 +18,7 @@ class DepositoStrumenti:
             with open(file_path) as csvfile:
                 file = csv.reader(csvfile, delimiter=',')
                 for riga in file:
-                    self.__strumenti[riga[0]] = [riga[1], riga[2], riga[3], riga[4]]
+                    self.__strumenti[riga[0]] = [riga[1], riga[2], int(riga[3]), float(riga[4])]
         except FileNotFoundError:
             print(f"Impossibile trovare il file (FileNotFoundError)")
             exit()
@@ -27,15 +27,16 @@ class DepositoStrumenti:
         """Aggiunge uno strumento nel deposito: aggiunge solo nel sistema e non aggiorna il file"""
         # TODO -------------DONE--------------
         codice = 1
-        while codice in set(el[1:] for el in self.__strumenti.keys()): codice += 1
+        while codice in set(int(el[1:]) for el in self.__strumenti.keys()): codice += 1
         scodice = "S" + str(codice)
         #Crea un codice che non sia già stato usato
         self.__strumenti[scodice] = [tipo, marca, anno_acquisto, valore]
+        return self.__strumenti[scodice]
 
     def strumenti_ordinati_per_marca(self):
         """Ordina gli strumenti per marca in ordine alfabetico"""
         # TODO -------------DONE----------------
-        return sorted([el for el in self.__strumenti.values()], key = itemgetter(2))
+        return sorted([el for el in self.__strumenti.values()], key = itemgetter(1))
 
     def nuovo_prestito(self, data, id_strumento, cognome_allievo):
         """Crea un nuovo prestito"""
