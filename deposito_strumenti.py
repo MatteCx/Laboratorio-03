@@ -1,6 +1,5 @@
 import csv
 from operator import itemgetter
-from datetime import datetime
 
 class DepositoStrumenti:
     def __init__(self, nome, responsabile):
@@ -43,13 +42,14 @@ class DepositoStrumenti:
         # TODO ------------DONE----------------
         if id_strumento not in set(el for el in self.__strumenti.keys()):
             raise NameError("Il codice strumento non è presente nel deposito")
-        elif id_strumento not in set(el[1] for el in self.__prestiti.values()):
+        elif id_strumento in set(el[1] for el in self.__prestiti.values()):
             raise NameError("Lo strumento risulta in prestito ad un altro allievo")
         n_prestito = 1
         while n_prestito in set(int(el[1:]) for el in self.__prestiti.keys()): n_prestito += 1
         id_prestito = "P"+str(n_prestito)
         # Crea un id_prestito che non sia già stato usato
         self.__prestiti[id_prestito] = [data, id_strumento, cognome_allievo]
+        return True
 
     def termina_prestito(self, id_prestito):
         """Termina un prestito in atto"""
