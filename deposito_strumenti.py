@@ -104,7 +104,7 @@ class DepositoStrumenti:
             # if el.id_prestito == id_prestito: indice = self.__strumenti.index(el)
             self.__prestiti.pop(indice)
         except IndexError:
-            print(f"Il codice prestito inserito non è associato a nessun prestito")
+            raise Exception("Il codice prestito inserito non è associato a nessun prestito")
         except KeyError:
             raise Exception("Il codice ID inserito non risulta collegato a nessun prestito")
 
